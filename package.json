@@ -1,0 +1,25 @@
+{
+  "name": "react-native-simpledialog-android",
+  "version": "1.0.0",
+  "description": "React Native Android module to use Android's AlertDialog - same idea of AlertIOS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "react-component",
+    "alert",
+    "alertdialog",
+    "dialog",
+    "android"
+  ],
+  "author": "Lucas Ferreira <contato@lucasferreira.com>",
+  "license": "MIT",
+  "repository": "https://github.com/lucasferreira/react-native-simpledialog-android",
+  "bugs": "https://github.com/lucasferreira/react-native-simpledialog-android/issues",
+  "peerDependencies": {
+    "react-native": ">=0.13"
+  }
+}
