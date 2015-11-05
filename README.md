@@ -61,7 +61,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 ```
 
 ## Usage
-This module are very similar to [AlertIOS][https://facebook.github.io/react-native/docs/alertios.html] native module, and only works with **alert** method (prompt method aren't implemented yet).
+This module are very similar to [AlertIOS](https://facebook.github.io/react-native/docs/alertios.html) native module, and only works with **alert** method *(prompt method aren't implemented yet)*.
 
 The main difference are in the way that you declare buttons. In Android you can declare **up to 3 buttons** and in this module you have to declare what **type** the button is.
 A button can be **SimpleAlert.POSITIVE_BUTTON**, **SimpleAlert.NEGATIVE_BUTTON** or **SimpleAlert.NEUTRAL_BUTTON**.
