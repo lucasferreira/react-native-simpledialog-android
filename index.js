@@ -5,8 +5,8 @@
 'use strict';
 
 var React = require('react-native');
-var { AlertIOS, Platform } = React;
-var SimpleAlertAndroid = require('NativeModules').SimpleAlertAndroid;
+var { AlertIOS, Platform, NativeModules } = React;
+var SimpleAlertAndroid = NativeModules.SimpleAlertAndroid;
 
 if (Platform.OS === 'ios') {
     var Buttons = {
@@ -37,7 +37,7 @@ var SimpleAlert = {
             let _masterCallback = (buttonType) => {
                 for(let j=0; j<_buttonConfig.length; j++) {
                     if("type" && _buttonConfig[j] && _buttonConfig[j].type === buttonType && ("onPress" in _buttonConfig[j] && typeof _buttonConfig[j].onPress == "function")) {
-                        _buttonConfig[j].onPress.apply(null, []);
+                        _buttonConfig[j].onPress.apply(null, [{type: buttonType}]);
                     }
                 }
             };
