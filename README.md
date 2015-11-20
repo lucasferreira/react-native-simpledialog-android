@@ -1,6 +1,11 @@
 # react-native-simpledialog-android
 React Native Android module to use Android's AlertDialog - same idea of AlertIOS
 
+[![npm version](http://img.shields.io/npm/v/react-native-simpledialog-android.svg?style=flat-square)](https://npmjs.org/package/react-native-simpledialog-android "View this project on npm")
+[![npm downloads](http://img.shields.io/npm/dm/react-native-simpledialog-android.svg?style=flat-square)](https://npmjs.org/package/react-native-simpledialog-android "View this project on npm")
+[![npm licence](http://img.shields.io/npm/l/react-native-simpledialog-android.svg?style=flat-square)](https://npmjs.org/package/react-native-simpledialog-android "View this project on npm")
+
+
 ### Installation
 
 ```bash
