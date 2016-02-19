@@ -32,7 +32,27 @@ dependencies {
 }
 ```
 
-* Register Module (in MainActivity.java)
+* Register Module >= 0.18 (in MainActivity.java)
+
+```java
+import com.burnweb.rnsimplealertdialog.RNSimpleAlertDialogPackage;  // <--- import
+
+public class MainActivity extends ReactActivity {
+  ......
+
+  @Override
+  protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+            new MainReactPackage(),
+            new RNSimpleAlertDialogPackage(this)); // <------ add this line to your MainActivity class, don't forget the `this` argument in constructor
+  }
+
+  ......
+
+}
+```
+
+* Register Module <= 0.17 (in MainActivity.java)
 
 ```java
 import com.burnweb.rnsimplealertdialog.RNSimpleAlertDialogPackage;  // <--- import
@@ -50,7 +70,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
       .setBundleAssetName("index.android.bundle")
       .setJSMainModuleName("index.android")
       .addPackage(new MainReactPackage())
-      .addPackage(new RNSimpleAlertDialogPackage(this)) // <------ add this line to yout MainActivity class, don't forget the `this` argument in constructor
+      .addPackage(new RNSimpleAlertDialogPackage(this)) // <------ add this line to your MainActivity class, don't forget the `this` argument in constructor
       .setUseDeveloperSupport(BuildConfig.DEBUG)
       .setInitialLifecycleState(LifecycleState.RESUMED)
       .build();
