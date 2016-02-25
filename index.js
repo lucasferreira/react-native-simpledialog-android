@@ -32,7 +32,7 @@ var SimpleAlert = {
             for(let j=0; j<_buttonConfig.length; j++) {
                 if("type" && _buttonConfig[j]) delete _buttonConfig[j]['type'];
             }
-            AlertIOS.alert.apply(null, [title, text, _buttonConfig]);
+            AlertIOS.alert.apply(AlertIOS, [title, text, _buttonConfig]);
         } else {
             let _masterCallback = (buttonType) => {
                 for(let j=0; j<_buttonConfig.length; j++) {
