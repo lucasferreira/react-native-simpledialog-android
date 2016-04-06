@@ -12,16 +12,13 @@ import com.facebook.react.uimanager.ViewManager;
 
 public class RNSimpleAlertDialogPackage implements ReactPackage {
 
-    private Activity mActivity = null;
-
-    public RNSimpleAlertDialogPackage(Activity activity) {
-        mActivity = activity;
-    }
+    public RNSimpleAlertDialogPackage() {}
+    public RNSimpleAlertDialogPackage(Activity activity) {}
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new RNSimpleAlertDialogModule(reactContext, mActivity));
+        modules.add(new RNSimpleAlertDialogModule(reactContext));
         return modules;
     }
 

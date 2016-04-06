@@ -4,25 +4,29 @@
 
 'use strict';
 
-var React = require('react-native');
-var { AlertIOS, Platform, NativeModules } = React;
-var SimpleAlertAndroid = NativeModules.SimpleAlertAndroid;
+import React, {
+  AlertIOS,
+  Platform,
+  NativeModules
+} from 'react-native';
 
-if (Platform.OS === 'ios') {
-    var Buttons = {
-        POSITIVE_BUTTON: "POSITIVE_BUTTON",
-        NEGATIVE_BUTTON: "NEGATIVE_BUTTON",
-        NEUTRAL_BUTTON: "NEUTRAL_BUTTON",
-    };
-} else {
-    var Buttons = {
+const SimpleAlertAndroid = NativeModules.SimpleAlertAndroid;
+
+let Buttons = {
+    POSITIVE_BUTTON: "POSITIVE_BUTTON",
+    NEGATIVE_BUTTON: "NEGATIVE_BUTTON",
+    NEUTRAL_BUTTON: "NEUTRAL_BUTTON",
+};
+
+if (Platform.OS !== 'ios') {
+    Buttons = {
         POSITIVE_BUTTON: SimpleAlertAndroid.POSITIVE_BUTTON,
         NEGATIVE_BUTTON: SimpleAlertAndroid.NEGATIVE_BUTTON,
         NEUTRAL_BUTTON: SimpleAlertAndroid.NEUTRAL_BUTTON,
     };
 }
 
-var SimpleAlert = {
+const SimpleAlert = {
     [Buttons.POSITIVE_BUTTON]: Buttons.POSITIVE_BUTTON,
     [Buttons.NEGATIVE_BUTTON]: Buttons.NEGATIVE_BUTTON,
     [Buttons.NEUTRAL_BUTTON]: Buttons.NEUTRAL_BUTTON,

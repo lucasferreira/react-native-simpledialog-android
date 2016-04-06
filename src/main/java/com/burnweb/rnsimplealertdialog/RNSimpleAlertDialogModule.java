@@ -25,12 +25,8 @@ public class RNSimpleAlertDialogModule extends ReactContextBaseJavaModule {
     private static final String NEGATIVE_BUTTON_KEY = "NEGATIVE_BUTTON";
     private static final String NEUTRAL_BUTTON_KEY = "NEUTRAL_BUTTON";
 
-    private Activity mActivity = null;
-
-    public RNSimpleAlertDialogModule(ReactApplicationContext reactContext, Activity mActivity) {
+    public RNSimpleAlertDialogModule(ReactApplicationContext reactContext) {
       super(reactContext);
-
-      this.mActivity = mActivity;
     }
 
     @Override
@@ -49,35 +45,45 @@ public class RNSimpleAlertDialogModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void alert(final String title, final String message, final ReadableArray buttonConfig, final Callback buttonsCallback) {
-      AlertDialog.Builder builder = new AlertDialog.Builder(this.mActivity);
+      AlertDialog.Builder builder = new AlertDialog.Builder(getCurrentActivity());
 
       if(title != null) builder.setTitle(title);
       if(message != null) builder.setMessage(message);
 
       if(buttonConfig != null && buttonConfig.size() > 0) {
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+          @Override
+          public void onCancel(DialogInterface dialog) {
+            if(buttonsCallback != null) buttonsCallback.invoke(NEGATIVE_BUTTON_KEY);
+          }
+        });
+
         for (int i = 0; i<buttonConfig.size(); i++) {
           ReadableMap button = buttonConfig.getMap(i);
           if(button != null && button.hasKey("type") && button.hasKey("text")) {
             switch(button.getString("type")) {
               case NEGATIVE_BUTTON_KEY:
                 builder.setNegativeButton(button.getString("text"), new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
-                       if(buttonsCallback != null) buttonsCallback.invoke(NEGATIVE_BUTTON_KEY);
-                   }
+                  @Override
+                  public void onClick(DialogInterface dialog, int id) {
+                     if(buttonsCallback != null) buttonsCallback.invoke(NEGATIVE_BUTTON_KEY);
+                  }
                 });
                 break;
               case NEUTRAL_BUTTON_KEY:
                 builder.setNeutralButton(button.getString("text"), new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
-                       if(buttonsCallback != null) buttonsCallback.invoke(NEUTRAL_BUTTON_KEY);
-                   }
+                  @Override
+                  public void onClick(DialogInterface dialog, int id) {
+                     if(buttonsCallback != null) buttonsCallback.invoke(NEUTRAL_BUTTON_KEY);
+                  }
                 });
                 break;
               default:
                 builder.setPositiveButton(button.getString("text"), new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
-                       if(buttonsCallback != null) buttonsCallback.invoke(POSITIVE_BUTTON_KEY);
-                   }
+                  @Override
+                  public void onClick(DialogInterface dialog, int id) {
+                     if(buttonsCallback != null) buttonsCallback.invoke(POSITIVE_BUTTON_KEY);
+                  }
                 });
                 break;
             }
