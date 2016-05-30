@@ -1,6 +1,6 @@
 {
   "name": "react-native-simpledialog-android",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React Native Android module to use Android's AlertDialog - same idea of AlertIOS",
   "main": "index.js",
   "scripts": {

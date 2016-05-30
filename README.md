@@ -19,7 +19,7 @@ npm install react-native-simpledialog-android --save
 ```gradle
 ...
 include ':RNSimpleAlertDialogModule', ':app'
-project(':RNSimpleAlertDialogModule').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-simpledialog-android')
+project(':RNSimpleAlertDialogModule').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-simpledialog-android/android')
 ```
 
 * In `android/app/build.gradle`
