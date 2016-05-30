@@ -4,11 +4,7 @@
 
 'use strict';
 
-import React, {
-  AlertIOS,
-  Platform,
-  NativeModules
-} from 'react-native';
+import { AlertIOS, Platform, NativeModules } from 'react-native';
 
 const SimpleAlertAndroid = NativeModules.SimpleAlertAndroid;
 
