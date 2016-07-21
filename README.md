@@ -14,7 +14,7 @@ npm install react-native-simpledialog-android --save
 
 ### Add it to your android project
 
-* In `android/setting.gradle`
+* In `android/settings.gradle`
 
 ```gradle
 ...
@@ -32,12 +32,14 @@ dependencies {
 }
 ```
 
-* Register Module >= 0.17 (in MainActivity.java)
+* Register Module >= 0.17 && <= 0.29(in ```MainActivity.java```)
+* NOTE: >= RN 29 split ```MainActivity.java``` into ```MainActivity.java``` and
+  ```MainApplication.java```.  So make modifications below to ```MainApplication.java```
 
 ```java
 import com.burnweb.rnsimplealertdialog.RNSimpleAlertDialogPackage;  // <--- import
 
-public class MainActivity extends ReactActivity {
+public class MainActivity/MainApplication extends ReactActivity {
   ......
 
   @Override
