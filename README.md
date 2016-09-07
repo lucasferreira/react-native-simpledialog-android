@@ -39,14 +39,14 @@ dependencies {
 ```java
 import com.burnweb.rnsimplealertdialog.RNSimpleAlertDialogPackage;  // <--- import
 
-public class MainActivity/MainApplication extends ReactActivity {
+public class MainApplication extends Application implements ReactApplication {
   ......
 
   @Override
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new RNSimpleAlertDialogPackage()); // <------ add this line to your MainActivity class
+            new RNSimpleAlertDialogPackage()); // <------ add this line to your MainApplication class
   }
 
   ......
