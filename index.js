@@ -8,7 +8,7 @@ import { AlertIOS, Platform, NativeModules } from 'react-native';
 
 const SimpleAlertAndroid = NativeModules.SimpleAlertAndroid;
 
-let Buttons = {
+const Buttons = {
     POSITIVE_BUTTON: "POSITIVE_BUTTON",
     NEGATIVE_BUTTON: "NEGATIVE_BUTTON",
     NEUTRAL_BUTTON: "NEUTRAL_BUTTON",
